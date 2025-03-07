@@ -2,22 +2,27 @@
 
 import Image from "next/image";
 import { useState } from "react";
-import { useRouter } from "next/navigation"; // Importamos el router de Next.js
 import "./page.css";
 
 export default function Home() {
-  const router = useRouter(); // Hook para navegación en Next.js
+  const rows = 20; // Cantidad de filas
+  const cols = 20; // Cantidad de columnas
 
-  // Lista de textos con coordenadas, rotación y URL de destino
+  // Estado con los textos y sus posiciones
   const [texts, setTexts] = useState([
-    { id: 1, x: 20, y: 30, text: "Ir a Google", rotation: 0, url: "https://www.google.com" },
-    { id: 2, x: 60, y: 50, text: "Ir a Next.js", rotation: 45, url: "/about" }, // Página interna de Next.js
+    { id: 1, x: 20, y: 30, text: "Hola", rotation: 0 },
+    { id: 2, x: 60, y: 50, text: "Chao", rotation: 45 },
   ]);
+
+  // Manejar clics en la cuadrícula
+  const handleCellClick = (x, y) => {
+    console.log(`Clic en coordenadas: X=${x}%, Y=${y}%`);
+  };
 
   return (
     <div className="full-screen-container">
-      {/* Contenedor de la imagen */}
       <div className="image-wrapper">
+        {/* Imagen de fondo */}
         <Image
           src="/intro4.png"
           alt="Imagen con cuadrícula"
@@ -28,9 +33,28 @@ export default function Home() {
           unoptimized
         />
 
-        {/* Botones posicionados dinámicamente */}
-        {texts.map(({ id, x, y, text, rotation, url }) => (
-          <button
+        {/* Cuadrícula interactiva con botones más grandes */}
+        <div className="grid-overlay">
+          {Array.from({ length: rows * cols }, (_, index) => {
+            const row = Math.floor(index / cols);
+            const col = index % cols;
+            const x = (col / (cols - 1)) * 100; // Coordenada X en porcentaje
+            const y = (row / (rows - 1)) * 100; // Coordenada Y en porcentaje
+
+            return (
+              <button
+                key={index}
+                className="grid-cell"
+                style={{ left: `${x}%`, top: `${y}%` }}
+                onClick={() => handleCellClick(x, y)}
+              />
+            );
+          })}
+        </div>
+
+        {/* Texto posicionado dinámicamente */}
+        {texts.map(({ id, x, y, text, rotation }) => (
+          <div
             key={id}
             className="text-overlay"
             style={{
@@ -38,16 +62,9 @@ export default function Home() {
               top: `${y}%`,
               transform: `translate(-50%, -50%) rotate(${rotation}deg)`,
             }}
-            onClick={() => {
-              if (url.startsWith("http")) {
-                window.open(url, "_blank"); // Para enlaces externos
-              } else {
-                router.push(url); // Para navegación interna en Next.js
-              }
-            }}
           >
             {text}
-          </button>
+          </div>
         ))}
       </div>
     </div>
