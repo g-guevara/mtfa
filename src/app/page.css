@@ -1,0 +1,61 @@
+/* Contenedor principal */
+.full-screen-container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 4%;
+  background-color: #d1c9bf;
+  position: relative;
+}
+
+/* Contenedor de la imagen */
+.image-container {
+  width: 100%;
+  height: 100%;
+}
+
+/* Cuadrícula sobre la imagen */
+.grid-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  width: 80%;
+  height: 80%;
+  gap: 5px;
+}
+
+/* Cada celda de la cuadrícula */
+.grid-cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: black;
+
+  padding: 10px;
+  text-align: center;
+  word-break: break-word; /* Permite que las palabras largas se rompan */
+  overflow: hidden;
+  white-space: normal;
+  max-width: 100%;
+  border: 3px solid rgba(0, 0, 0, 0.2);
+  max-height: 100%;
+}
+
+/* Texto adaptable */
+.grid-cell span {
+  display: block;
+  width: 100%;
+  font-size: clamp(10px, 2vw, 1.5rem); /* Ajusta el tamaño entre 10px y 1.5rem */
+  overflow: hidden;
+  text-overflow: ellipsis; /* Corta el texto largo con "..." */
+  max-width: 100%;
+}
