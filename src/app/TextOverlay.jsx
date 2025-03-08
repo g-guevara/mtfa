@@ -12,9 +12,9 @@ export default function TextOverlay({ texts }) {
       const originalAspectRatio = 3280 / 4720; // Relación de aspecto original
       const currentAspectRatio = window.innerWidth / window.innerHeight;
       
-      // Normalizamos la escala en un rango más amplio
+      // Ajustamos `scaleFactor` sin un límite superior para que siempre cambie
       let newScale = currentAspectRatio / originalAspectRatio;
-      newScale = Math.max(0.3, Math.min(newScale, 2)); // Expandimos el rango permitido
+      newScale = Math.min(newScale, 3); // Limitamos solo el mínimo para evitar valores negativos
       setScaleFactor(newScale);
     };
 
@@ -29,8 +29,8 @@ export default function TextOverlay({ texts }) {
   return (
     <div className="text-overlay-container">
       {texts.map(({ id, x, y, text, rotation, scaleRotation, rotationDirection, url }) => {
-        // Ajustamos la rotación con un impacto más gradual
-        const adjustedRotation = rotation + (1 - scaleFactor) * scaleRotation * rotationDirection * 150; 
+        // **Ahora `scaleFactor` siempre afecta la rotación**
+        const adjustedRotation = rotation + (1 - scaleFactor) * scaleRotation * rotationDirection * 200; 
 
         // Depuración: Ver los valores en consola
         console.log(`Texto: ${text} | Rotación original: ${rotation} | Ajustada: ${adjustedRotation} | ScaleFactor: ${scaleFactor}`);
