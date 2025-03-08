@@ -8,8 +8,8 @@ export default function GridOverlay({ texts }) {
 
 // Definir los enlaces agrupando los índices que llevan al mismo destino
 const linkGroups = [
-    { numbers: [21, 22, 41, 42, 43, 45], url: "https://www.youtube.com" },
-    { numbers: [61, 62], url: "https://www.google.com" },
+    { numbers: [20,21, 22, 41, 42, 43, 45], url: "https://www.youtube.com" },
+    { numbers: [61, 62,103,263,264], url: "https://www.google.com" },
   ];
   
   // Convertir la estructura en un objeto `linkMap`
@@ -62,6 +62,7 @@ const linkGroups = [
             left: `${x}%`,
             top: `${y}%`,
             transform: `translate(-50%, -50%) rotate(${rotation}deg)`,
+            cursor: "pointer",
           }}
           onClick={() => window.open("https://www.google.com", "_blank")}
         >
