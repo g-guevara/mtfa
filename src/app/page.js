@@ -24,7 +24,7 @@ export default function Home() {
       <div className="image-wrapper">
         {/* Imagen de fondo */}
         <Image
-          src="/intro4.png"
+          src="/intro42.png"
           alt="Imagen con cuadrícula"
           className="image"
           width={3280}
