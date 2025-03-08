@@ -2,19 +2,14 @@
 
 import Image from "next/image";
 import { useState } from "react";
-import GridOverlay from "./GridOverlay";
+import GridOverlay from "../app/GridOverlay";
 import "./Home.css";
 
 export default function HomeContent() {
   // Estado con los textos y sus posiciones, ahora con rutas internas
   const [texts, setTexts] = useState([
-    { id: 1, x: 10, y: 52, text: "Education", rotation: 0, url: "/education" },
-    { id: 2, x: 20, y: 69, text: "Interests", rotation: 0, url: "/pagina2" },
-    { id: 3, x: 65, y: 80, text: "Skills", rotation: 90, url: "/pagina2" },
-    { id: 4, x: 60, y: 50, text: "Contact", rotation: 45, url: "/pagina2" },
-    { id: 5, x: 60, y: 50, text: "Experience", rotation: 0, url: "/pagina2" },
-    { id: 6, x: 60, y: 50, text: "Languages", rotation: 0, url: "/pagina2" },
-    { id: 7, x: 87, y: 50, text: "Proyects", rotation: 45, url: "/pagina2" },
+    { id: 1, x: 20, y: 30, text: "Hola", rotation: 0, url: "/pagina1" },
+    { id: 2, x: 60, y: 50, text: "Chao", rotation: 45, url: "/pagina2" },
   ]);
 
   return (
