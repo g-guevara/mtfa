@@ -16,7 +16,7 @@ export default function Home() {
 
   // Manejar clics en la cuadrícula
   const handleCellClick = (x, y) => {
-    console.log(`Clic en coordenadas: X=${x}%, Y=${y}%`);
+    window.open("https://www.google.com", "_blank");
   };
 
   return (
@@ -24,7 +24,7 @@ export default function Home() {
       <div className="image-wrapper">
         {/* Imagen de fondo */}
         <Image
-          src="/intro42.png"
+          src="/intro4.png"
           alt="Imagen con cuadrícula"
           className="image"
           width={3280}
@@ -54,7 +54,7 @@ export default function Home() {
 
         {/* Texto posicionado dinámicamente */}
         {texts.map(({ id, x, y, text, rotation }) => (
-          <div
+          <button
             key={id}
             className="text-overlay"
             style={{
@@ -62,9 +62,10 @@ export default function Home() {
               top: `${y}%`,
               transform: `translate(-50%, -50%) rotate(${rotation}deg)`,
             }}
+            onClick={() => window.open("https://www.google.com", "_blank")}
           >
             {text}
-          </div>
+          </button>
         ))}
       </div>
     </div>
