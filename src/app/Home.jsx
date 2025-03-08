@@ -6,10 +6,10 @@ import GridOverlay from "./GridOverlay";
 import "./Home.css";
 
 export default function HomeContent() {
-  // Estado con los textos y sus posiciones
+  // Estado con los textos y sus posiciones, ahora con URLs personalizadas
   const [texts, setTexts] = useState([
-    { id: 1, x: 20, y: 30, text: "Hola", rotation: 0 },
-    { id: 2, x: 60, y: 50, text: "Chao", rotation: 45 },
+    { id: 1, x: 20, y: 30, text: "Hola", rotation: 0, url: "https://www.google.com" },
+    { id: 2, x: 60, y: 50, text: "Chao", rotation: 45, url: "https://www.youtube.com" },
   ]);
 
   return (
