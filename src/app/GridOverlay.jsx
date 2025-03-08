@@ -1,23 +1,22 @@
 "use client";
 import "./GridOverlay.css";
 
-
 export default function GridOverlay({ texts }) {
   const rows = 20;
   const cols = 20;
+  const SHOW_NUMBERS = 1; // Cambia a 0 para ocultar los números
 
-  // Mapeo de índices a enlaces específicos
-  const linkMap = {
-    2: "https://www.youtube.com",
-    3: "https://www.youtube.com",
-    4: "https://www.youtube.com",
-    5: "https://www.youtube.com",
-    77: "https://www.youtube.com",
-    12: "https://www.youtube.com",
-    8: "https://www.google.com",
-    22: "https://www.google.com",
-  };
-
+// Definir los enlaces agrupando los índices que llevan al mismo destino
+const linkGroups = [
+    { numbers: [21, 22, 41, 42, 43, 45], url: "https://www.youtube.com" },
+    { numbers: [61, 62], url: "https://www.google.com" },
+  ];
+  
+  // Convertir la estructura en un objeto `linkMap`
+  const linkMap = Object.fromEntries(
+    linkGroups.flatMap(({ numbers, url }) => numbers.map((num) => [num, url]))
+  );
+  
   // Manejar clics en la cuadrícula
   const handleCellClick = (index) => {
     const url = linkMap[index];
@@ -34,6 +33,7 @@ export default function GridOverlay({ texts }) {
         const col = index % cols;
         const x = (col / (cols - 1)) * 100; // Coordenada X en porcentaje
         const y = (row / (rows - 1)) * 100; // Coordenada Y en porcentaje
+        const hasLink = !!linkMap[index];
 
         return (
           <button
@@ -42,10 +42,14 @@ export default function GridOverlay({ texts }) {
             style={{
               left: `${x}%`,
               top: `${y}%`,
-              backgroundColor: linkMap[index] ? "#ffcc00" : "transparent", // Color opcional para ver cuáles tienen enlaces
+              backgroundColor: hasLink ? "#ffcc00" : "transparent", // Color opcional para ver cuáles tienen enlaces
+              cursor: hasLink ? "pointer" : "default", // Cursor solo cambia en los que tienen link
+              color: "red",
             }}
             onClick={() => handleCellClick(index)}
-          />
+          >
+            {SHOW_NUMBERS ? index : ""}
+          </button>
         );
       })}
 
