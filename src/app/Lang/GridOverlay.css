@@ -1,0 +1,35 @@
+/* Cuadrícula sobre la imagen */
+.grid-overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+  }
+  
+  /* Botones de la cuadrícula */
+  .grid-cell {
+    position: absolute;
+    width: 5.2%;
+    height: 5.2%;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    pointer-events: all;
+    transition: background-color 0.1s ease-in-out;
+  }
+  
+
+  
+  /* Texto posicionado en coordenadas relativas */
+  .text-overlay {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    font-size: clamp(10px, 2vw, 20px);
+    color: #cec9c1;
+    padding: 5px 10px;
+    white-space: nowrap;
+    font-weight: 100; /* Grosor más fino */
+  }
+  

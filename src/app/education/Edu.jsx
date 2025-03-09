@@ -28,6 +28,7 @@ export default function HomeContent() {
           width={3280}
           height={4720}
           priority
+          unoptimized
         />
 
         {/* Cuadrícula interactiva */}
