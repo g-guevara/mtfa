@@ -29,3 +29,15 @@
     object-fit: fill;
   }
   
+
+  /* Imagen sobrepuesta (Portrait) */
+.overlay-image {
+  position: absolute;
+  top: 54%;  /* Ajusta la posición verticalmente */
+  left: 20%; /* Ajusta la posición horizontalmente */
+  transform: translate(-50%, -50%); /* Centra la imagen */
+  width: 20vw; /* Ajusta el tamaño de la imagen */
+  height: auto;
+  object-fit: contain; /* Evita que se deforme */
+  z-index: 2; /* Se asegura de que esté sobre la imagen de fondo */
+}
