@@ -1,4 +1,5 @@
 "use client";
+
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import "./GridOverlay.css";
@@ -9,12 +10,11 @@ export default function TextOverlay({ texts }) {
 
   useEffect(() => {
     const updateScale = () => {
-      const originalAspectRatio = 3280 / 4720; // Relación de aspecto original
+      const originalAspectRatio = 3280 / 4720;
       const currentAspectRatio = window.innerWidth / window.innerHeight;
-      
-      // Ajustamos `scaleFactor` sin un límite superior para que siempre cambie
+
       let newScale = currentAspectRatio / originalAspectRatio;
-      newScale = Math.min(newScale, 3); // Limitamos solo el mínimo para evitar valores negativos
+      newScale = Math.min(newScale, 3);
       setScaleFactor(newScale);
     };
 
@@ -28,14 +28,25 @@ export default function TextOverlay({ texts }) {
 
   return (
     <div className="text-overlay-container">
-      {texts.map(({ id, x, y, text, rotation, scaleRotation, rotationDirection, url }) => {
-        // **Ahora `scaleFactor` siempre afecta la rotación**
-        const adjustedRotation = rotation + (1 - scaleFactor) * scaleRotation * rotationDirection * 200; 
+      {texts.map(({ id, x, y, text, rotation, scaleRotation, rotationDirection, url, isInput }) => {
+        const adjustedRotation = rotation + (1 - scaleFactor) * scaleRotation * rotationDirection * 200;
 
-        // Depuración: Ver los valores en consola
-        console.log(`Texto: ${text} | Rotación original: ${rotation} | Ajustada: ${adjustedRotation} | ScaleFactor: ${scaleFactor}`);
-
-        return (
+        return isInput ? (
+          <input
+            key={id}
+            type="text"
+            defaultValue={text}
+            className="text-overlay-input"
+            style={{
+              left: `${x}%`,
+              top: `${y}%`,
+              transform: `translate(-50%, -50%) rotate(${adjustedRotation}deg)`,
+            }}
+            onClick={(e) => e.stopPropagation()} 
+            onChange={(e) => console.log("Nuevo valor:", e.target.value)} 
+            autoFocus
+          />
+        ) : (
           <button
             key={id}
             className="text-overlay"

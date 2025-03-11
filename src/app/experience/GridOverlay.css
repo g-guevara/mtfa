@@ -1,0 +1,72 @@
+/* Cuadrícula sobre la imagen */
+.grid-overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+  }
+  
+  /* Botones de la cuadrícula */
+  .grid-cell {
+    position: absolute;
+    width: 5.2%;
+    height: 5.2%;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    pointer-events: all;
+    transition: background-color 0.1s ease-in-out;
+  }
+  
+
+  
+  /* Texto posicionado en coordenadas relativas */
+  .text-overlay {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    font-size: clamp(10px, 2vw, 20px);
+    color: #cec9c1;
+    padding: 5px 10px;
+    white-space: nowrap;
+    font-weight: 100; /* Grosor más fino */
+  }
+  
+/* Update your text-overlay class in GridOverlay.css for better responsiveness */
+.text-overlay {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  font-size: clamp(10px, 1.8vw, 18px);
+  color: #cec9c1;
+  font-weight: 100;
+  padding: 5px 10px;
+  white-space: normal;
+  max-width: 30vw; /* Use viewport width instead of fixed pixels */
+  max-height: 20vh; /* Use viewport height instead of fixed pixels */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+  text-align: left;
+}
+
+/* Media queries for different screen sizes */
+@media (max-width: 768px) {
+  .text-overlay {
+    max-width: 60vw; /* Wider on small screens */
+    font-size: clamp(8px, 2.5vw, 16px);
+    -webkit-line-clamp: 4; /* Fewer lines on small screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .text-overlay {
+    max-width: 80vw; /* Even wider on very small screens */
+    max-height: 15vh;
+    font-size: clamp(7px, 3vw, 14px);
+    -webkit-line-clamp: 3; /* Even fewer lines on very small screens */
+    padding: 3px 6px;
+  }
+}

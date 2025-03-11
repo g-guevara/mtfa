@@ -1,4 +1,5 @@
 "use client";
+
 import { useRouter } from "next/navigation";
 import "./GridOverlay.css";
 import TextOverlay from "./TextOverlay";
@@ -7,35 +8,30 @@ export default function GridOverlay({ texts }) {
   const router = useRouter();
   const rows = 20;
   const cols = 20;
-  const SHOW_NUMBERS = 0; // Cambia a 0 para ocultar los números
+  const SHOW_NUMBERS = 0; 
 
-  // Definir los enlaces agrupando los índices que llevan al mismo destino
   const linkGroups = [
-    { numbers: [360,361], url: "/" },
-
+    { numbers: [360, 361], url: "/" },
   ];
 
-  // Convertir la estructura en un objeto `linkMap`
   const linkMap = Object.fromEntries(
     linkGroups.flatMap(({ numbers, url }) => numbers.map((num) => [num, url]))
   );
 
-  // Manejar clics en la cuadrícula
   const handleCellClick = (index) => {
     const url = linkMap[index];
     if (url) {
-      router.push(url); // Redirige internamente
+      router.push(url);
     }
   };
 
   return (
     <div className="grid-overlay">
-      {/* Cuadrícula interactiva con botones */}
       {Array.from({ length: rows * cols }, (_, index) => {
         const row = Math.floor(index / cols);
         const col = index % cols;
-        const x = (col / (cols - 1)) * 100; // Coordenada X en porcentaje
-        const y = (row / (rows - 1)) * 100; // Coordenada Y en porcentaje
+        const x = (col / (cols - 1)) * 100;
+        const y = (row / (rows - 1)) * 100;
         const hasLink = !!linkMap[index];
 
         return (
@@ -46,9 +42,7 @@ export default function GridOverlay({ texts }) {
               left: `${x}%`,
               top: `${y}%`,
               cursor: hasLink ? "pointer" : "default",
-              // backgroundColor: hasLink ? "#ffcc00" : "transparent",
               color: "red",
-
             }}
             onClick={() => handleCellClick(index)}
           >
@@ -57,7 +51,6 @@ export default function GridOverlay({ texts }) {
         );
       })}
 
-      {/* Componente de textos superpuestos */}
       <TextOverlay texts={texts} />
     </div>
   );

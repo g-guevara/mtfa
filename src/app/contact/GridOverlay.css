@@ -32,4 +32,23 @@
     white-space: nowrap;
     font-weight: 100; /* Grosor más fino */
   }
+
+  .text-overlay-input {
+    position: absolute;
+    z-index: 99999; /* Mayor prioridad para que no haya nada encima */
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #cec9c1; /* Línea inferior delgada */
+    color: #cec9c1; /* Color del texto */
+    font-size: 16px;
+    text-align: center;
+    padding: 5px;
+    outline: none;
+    width: auto;
+    min-width: 100px;
+    max-width: 300px;
+    cursor: text;
+    pointer-events: auto; /* Asegura que el input sea interactivo */
+    transform-origin: center;
+  }
   
