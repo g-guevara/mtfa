@@ -48,9 +48,10 @@ max-height: 70vh; /* Use viewport height instead of fixed pixels */
 overflow: hidden;
 text-overflow: ellipsis;
 display: -webkit-box;
--webkit-line-clamp: 10;
+-webkit-line-clamp: 11;
 -webkit-box-orient: vertical;
 text-align: left;
+
 }
 
 /* Media queries for different screen sizes */
