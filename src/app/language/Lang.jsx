@@ -24,7 +24,7 @@ export default function HomeContent() {
       <div className="image-wrapper">
         {/* Imagen de fondo */}
         <Image
-          src="/Lang.png"
+          src="/lang2.png"
           alt="Imagen con cuadrícula"
           className="image"
           width={3280}
