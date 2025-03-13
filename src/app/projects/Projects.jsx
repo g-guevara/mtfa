@@ -8,11 +8,8 @@ import React from "react";
 
 export default function HomeContent() {
 
-  // lunar lo ochallenge
-  // bip reemplazo
+
   // comfind
-  // doctQR
-  //sensitivv
   // uai app
 
 
@@ -22,137 +19,27 @@ export default function HomeContent() {
 
   // Estado con los textos y sus posiciones, ahora con rutas internas
   const [texts, setTexts] = useState([
-    { id: 1, x: 20, y: 13, text: "Sensitive Foods",rotation: -27, scaleRotation: 0.06, rotationDirection: -1, url: "/pagina2" },
-    { id: 13, x: 85, y: 20.5, text: "Robotics", rotation: 0, scaleRotation: 0, rotationDirection: -1, url: "/education" },
-    //{ id: 332, x: 92, y: 63.5, text: "Assisted two magistrates in the preparation of their thesis, and optimization and maintenance of the photovoltaic plant, working with suppliers and professors.", rotation: 0, scaleRotation: 0, rotationDirection: -1, url: "" },
-    { 
-      id: 333, 
-      x: 92, 
-      y: 63.5, 
-      text: [
-        "- research",
-        "- providers",
-        "- passionate",
-        "- Interest in other areas",
-        "- Easy learner",
-        "- Empathy",
-        "- Continuous learning"
-      ].map((line, i) => (
-        <React.Fragment key={i}>
-          {line}
-          {i < 6 && <br />}
-        </React.Fragment>
-      )), 
-      rotation: 0, 
-      scaleRotation: 0, 
-      rotationDirection: -1, 
-      url: ""
-    },
+    { id: 1, x: 20, y: 13, text: "Sensitive Foods",rotation: -27, scaleRotation: 0.06, rotationDirection: -1, url: "/" },
+    { id: 1222, x: 20.5, y: 62, text: "- Systematically test, record, and analyze reactions to foods and procesed foods, enabling  to pinpoint specific reactions to certain ingredients through comparative trials and data-driven insights.", rotation: 0, scaleRotation: 0, rotationDirection: -1, url: "/pagina2" },
+    { id: 12122, x: 9.8, y: 70, text:  [<b key="App">App</b>], rotation: 0, scaleRotation: 0, rotationDirection: -1, url: "/pagina2" },
 
 
 
-    { 
-      id: 334, 
-      x: 75, 
-      y: 63.5, 
-      text: [
-        "- Arduino",
-        "- Rasberri pi",
-        "- C++"
-      ].map((line, i) => (
-        <React.Fragment key={i}>
-          {line}
-          {i < 6 && <br />}
-        </React.Fragment>
-      )), 
-      rotation: 0, 
-      scaleRotation: 0, 
-      rotationDirection: -1, 
-      url: ""
-    },
+    { id: 123, x: 85, y: 88, text: "Nasa Lunar Loo Challenge",rotation: -47, scaleRotation: 0.06, rotationDirection: -1, url: "/" },
+
+    { id: 13, x: 85, y: 20, text: "DoctQR",rotation: -36, scaleRotation: 0.06, rotationDirection: -1, url: "/" },
+    { id: 122, x: 78.5, y: 9, text: "- Printed QR code that fits in wallet cards and provides basic medical info. ", rotation: 0, scaleRotation: 0, rotationDirection: -1, url: "/pagina2" },
+    { id: 132122, x: 70.8, y: 13.8 , text:  [<b key="App">Web page</b>], rotation: 0, scaleRotation: 0, rotationDirection: -1, url: "/pagina2" },
 
 
+
+    { id: 9399, x: 55.5, y: 74, text: "OPAS", rotation: 79, scaleRotation: 0.06, rotationDirection: 1, url: "/projects" },
+    { id: 122333, x: 56.5, y: 89, text: "- SmartWatch to control oncological patients with direct comunication with medical support. Member of the 3rth place of the challenge Prototypes UAI. ", rotation: 0, scaleRotation: 0, rotationDirection: -1, url: "/pagina2" },
     
-    {
-      id: 335,
-      x: 42,
-      y: 33.5,
-      text: [
-        "- Express.js",
-        "- Next.js",
-        "- JavaScript",
-        "- TypeScript",
-        "- Tailwindcss",
-        "- CSS",
-        "- Java",
-        "- Node.js",
-        "- Figma",
-        "- WordPress"
-      ].map((line, i) => (
-        <React.Fragment key={i}>
-          {line}
-          {i < 9 && <br />}
-        </React.Fragment>
-      )),
-      rotation: 0,
-      scaleRotation: 0,
-      rotationDirection: -1,
-      url: ""
-    },
-
-    {
-      id: 336,
-      x: 28,
-      y:53.5,
-      text: [
-        "- Azure",
-        "- AWS",
-        "- MongoDB",
-        "- NoSQL",
-        "- SQL"
-      ].map((line, i) => (
-        <React.Fragment key={i}>
-          {line}
-          {i < 4 && <br />}
-        </React.Fragment>
-      )),
-      rotation: 0,
-      scaleRotation: 0,
-      rotationDirection: -1,
-      url: ""
-    },
-
-    {
-      id: 338,
-      x: 12,
-      y: 39,
-      text: [
-        "- Data Structures",
-        "- TensorFlow",
-        "- Python",
-        "- Swift",
-        "- Java",
-        "- Git",
-        "- R"
-      ].map((line, i) => (
-        <React.Fragment key={i}>
-          {line}
-          {i < 6 && <br />}
-        </React.Fragment>
-      )),
-      rotation: 0,
-      scaleRotation: 0,
-      rotationDirection: -1,
-      url: ""
-    },
-
+    { id: 93939, x: 28, y: 22, text: "PassPay", rotation: 99, scaleRotation: 0.06, rotationDirection: 1, url: "/projects" },
+    { id: 1223333, x: 46.5, y: 6, text: "- UWB sistem that enables seamless access, control and fare payment for public transportation. ",rotation: 0, scaleRotation: 0, rotationDirection: -1, url: "/" },
 
     { id: 2, x: 22, y: 96, text: "❬ Back", rotation: 0, scaleRotation: 0, rotationDirection: 1, url: "/" },
-    { id: 3, x: 69.5, y:24, text: "Web Dev", rotation: -84., scaleRotation: 0.06, rotationDirection: -1, url: "/pagina2" },
-    { id: 23, x: 19, y:64, text: "Cloud", rotation: -84., scaleRotation: 0.06, rotationDirection: -1, url: "/pagina2" },
-
-    { id: 4, x: 98.5, y: 49, text: "Overall", rotation: 90, scaleRotation: 0, rotationDirection: -1, url: "/pagina2" },
-    { id: 9, x: 65, y: 80, text: "Skills", rotation: 90, scaleRotation: 0, rotationDirection: -1, url: "/skills" },
     { id: 999, x: 87.7, y: 50, text: "Projects", rotation: 55, scaleRotation: 0.06, rotationDirection: 1, url: "/projects" },
 
   ]);

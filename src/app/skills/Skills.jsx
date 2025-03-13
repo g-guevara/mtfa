@@ -17,12 +17,14 @@ export default function HomeContent() {
       x: 92, 
       y: 63.5, 
       text: [
-        "- research",
-        "- providers",
-        "- passionate",
+        "- Research",
+        "- Providers",
+        "- SCRUM",
+        "- Passionate",
         "- Interest in other areas",
         "- Easy learner",
-        "- Empathy",
+        "- Social",
+
         "- Continuous learning"
       ].map((line, i) => (
         <React.Fragment key={i}>
