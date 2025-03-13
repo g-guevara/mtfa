@@ -12,6 +12,8 @@ export default function GridOverlay({ texts }) {
 
   const linkGroups = [
     { numbers: [360, 361], url: "/" },
+
+    { numbers: [231, 232,251,252], url:"https://www.linkedin.com/in/guillermo-guevara-585267294/"},
   ];
 
   const linkMap = Object.fromEntries(

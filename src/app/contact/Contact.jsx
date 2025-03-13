@@ -7,11 +7,11 @@ import "./Home.css";
 
 export default function HomeContent() {
   const [texts, setTexts] = useState([
-    { id: 1, x: 85, y: 97, text: "Spanish", rotation: 0, scaleRotation: 0, rotationDirection: -1, url: "/education", isInput: false },
     { id: 2, x: 4, y: 97, text: "❬ Back", rotation: 0, scaleRotation: 0, rotationDirection: 1, url: "/", isInput: false }, 
     { id: 4, x: 84, y: 4, text: "guevara.guillermo.g@gmail.com", rotation: 0, scaleRotation: 0, rotationDirection: -1, url: "/pagina2", isInput: false },
+    { id: 8, x:64, y: 64, text: "LinkedIn 🡥", rotation: 0, scaleRotation: 0, rotationDirection: 1, url: "https://www.linkedin.com/in/guillermo-guevara-585267294/", isInput: false },
+
     { id: 5, x: 25, y: 10, text: "Contact", rotation: 66, scaleRotation: 0.06, rotationDirection: 1, url: "/contact", isInput: false },
-    { id: 9, x: 25, y: 20, text: "", rotation: 10, scaleRotation: 0, rotationDirection: 1, url: "/", isInput: true },
   ]);
 
   return (
@@ -28,16 +28,7 @@ export default function HomeContent() {
           unoptimized
         />
 
-        {/* Imagen sobrepuesta - SE AGREGA SIN AFECTAR LO DEMÁS */}
-        <Image
-          src="/portait.jpg"
-          alt="Imagen sobrepuesta"
-          className="overlay-image"
-          width={500} 
-          height={700}
-          priority
-          unoptimized
-        />
+
 
         {/* Cuadrícula interactiva - NO SE TOCA */}
         <GridOverlay texts={texts} />
