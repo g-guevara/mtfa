@@ -28,7 +28,7 @@
     transform: translate(-50%, -50%);
     font-size: clamp(10px, 2vw, 20px);
     color: #cec9c1;
-    font-weight:100; /* Grosor más fino */
+    font-weight:200; /* Grosor más fino */
     padding: 5px 10px;
     white-space: nowrap;
   }
